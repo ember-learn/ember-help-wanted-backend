@@ -1,4 +1,4 @@
-import { attr /*, hasOne, hasMany */ } from 'denali';
+import { attr /* , hasOne, hasMany */ } from 'denali';
 import ApplicationModel from './application';
 
 export default class Issues extends ApplicationModel {

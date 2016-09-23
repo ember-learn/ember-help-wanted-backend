@@ -5,7 +5,7 @@ describe('issues resource', () => {
 
   setupApp();
 
-  describe('POST /issues', () => {
+  describe.skip('POST /issues', () => {
     it('should create a issue', function() {
       return this.app.post('/issues', {
           // Add the issue payload here
@@ -24,7 +24,7 @@ describe('issues resource', () => {
     });
   });
 
-  describe('GET /issues/:id', () => {
+  describe.skip('GET /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
@@ -40,7 +40,7 @@ describe('issues resource', () => {
     });
   });
 
-  describe('PATCH /issues/:id', () => {
+  describe.skip('PATCH /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
@@ -57,7 +57,7 @@ describe('issues resource', () => {
     });
   });
 
-  describe('DELETE /issues/:id', () => {
+  describe.skip('DELETE /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
