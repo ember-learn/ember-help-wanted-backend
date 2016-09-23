@@ -1,70 +1,73 @@
-describe('issue', function() {
+import expect from 'must';
+import { setupApp } from 'denali';
+
+describe('issues resource', () => {
 
   setupApp();
 
-  describe('create', function() {
+  describe('POST /issues', () => {
     it('should create a issue', function() {
       return this.app.post('/issues', {
           // Add the issue payload here
-        }).then(({ status, body }) => {
-          expect(status).to.equal(201);
-        });
+      }).then(({ status /* , body */ }) => {
+        expect(status).to.equal(201);
+      });
     });
   });
 
-  describe('list', function() {
-    it('should list issue', function() {
+  describe('GET /issues', () => {
+    it('should list issues', function() {
       return this.app.get('/issues')
-        .then(({ status, body }) => {
+        .then(({ status /* , body */ }) => {
           expect(status).to.equal(200);
         });
     });
   });
 
-  describe('show', function() {
+  describe('GET /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
-        }).then(({ body }) => {
-          this.id = body.data.id;
-        });
+      }).then(({ body }) => {
+        this.id = body.data.id;
+      });
     });
     it('should show a issue', function() {
       return this.app.get(`/issues/`)
-        .then(({ status, body }) => {
+        .then(({ status /* , body */ }) => {
           expect(status).to.equal(200);
         });
     });
   });
 
-  describe('update', function() {
+  describe('PATCH /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
-        }).then(({ body }) => {
-          this.id = body.data.id;
-        });
+      }).then(({ body }) => {
+        this.id = body.data.id;
+      });
     });
     it('should update a issue', function() {
-      return this.app.post(`/issues/`, {
+      return this.app.patch(`/issues/`, {
           // Add the issue payload here
-        }).then(({ status, body }) => {
-          expect(status).to.equal(200);
-        });
+      }).then(({ status /* , body */ }) => {
+        expect(status).to.equal(200);
+      });
     });
   });
 
-  describe('delete', function() {
+  describe('DELETE /issues/:id', () => {
     before(function() {
       return this.app.post('/issues', {
           // Add the issue payload here
-        }).then(({ body }) => {
-          this.id = body.data.id;
-        });
+      }).then(({ body }) => {
+        this.id = body.data.id;
+      });
     });
     it('should delete a issue', function() {
       return this.app.delete(`/issues/`)
-        .then(({ status, body }) => {
+        .then(({ status /* , body */ }) => {
           expect(status).to.equal(204);
         });
     });
