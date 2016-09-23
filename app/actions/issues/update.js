@@ -1,13 +1,13 @@
 import ApplicationAction from '../application';
 
-export default class UpdateIssue extends ApplicationAction {
+export default class UpdateIssues extends ApplicationAction {
 
   respond(params) {
-    let Issue = this.modelFor('issue');
-    return Issue.find(params.id)
-      .then((issue) => {
-        Object.assign(issue, params);
-        return issue.save();
+    let Issues = this.modelFor('issue');
+    return Issues.find(params.id)
+      .then((issues) => {
+        Object.assign(issues, params);
+        return issues.save();
       });
   }
 

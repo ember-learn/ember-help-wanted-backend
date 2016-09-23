@@ -1,10 +1,10 @@
 import ApplicationAction from '../application';
 
-export default class ShowIssue extends ApplicationAction {
+export default class ShowIssues extends ApplicationAction {
 
   respond(params) {
-    let Issue = this.modelFor('issue');
-    return Issue.find(params.id);
+    let Issues = this.modelFor('issue');
+    return Issues.find(params.id);
   }
 
 }

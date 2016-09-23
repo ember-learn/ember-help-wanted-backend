@@ -1,10 +1,10 @@
 import ApplicationAction from '../application';
 
-export default class ListIssue extends ApplicationAction {
+export default class ListIssues extends ApplicationAction {
 
   respond() {
-    let Issue = this.modelFor('issue');
-    return Issue.find();
+    let Issues = this.modelFor('issue');
+    return Issues.find();
   }
 
 }
