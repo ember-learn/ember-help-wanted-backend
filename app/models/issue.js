@@ -1,7 +1,7 @@
 import { attr /* , hasOne, hasMany */ } from 'denali';
 import ApplicationModel from './application';
 
-export default class Issues extends ApplicationModel {
+export default class Issue extends ApplicationModel {
 
   static githubId = attr('string');
   static number = attr('number');
