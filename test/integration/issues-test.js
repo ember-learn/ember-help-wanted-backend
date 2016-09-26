@@ -2,7 +2,7 @@ import expect from 'must';
 import { setupApp } from 'denali';
 import { validIssue } from '../fixtures/issues';
 
-describe('issues resource', () => {
+describe.skip('issues resource', () => {
 
   setupApp();
 

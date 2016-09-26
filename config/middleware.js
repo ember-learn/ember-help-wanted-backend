@@ -1,6 +1,12 @@
-export default function middleware(/* router, application */) {
+import webhookHandler from 'github-webhook-handler';
 
-  // Add your own middleware that will execute before Denali:
-  // this.use(someMiddlewareFunction);
+const issueHandler = webhookHandler({
+  path: '/webhook/issues',
+  secret: process.env.WEBHOOK_SECRET || 'oursecrethere'
+});
 
+export default function middleware(router /* , application */) {
+  router.use((req, res, next) => {
+    issueHandler(req, res, next); // run all requests through our webhook handler middleware
+  });
 }
