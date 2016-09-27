@@ -16,7 +16,7 @@
     "bluebird": "^2.9.25",
     "eslint": "^2.11.0",
     "eslint-config-denali": "^1.1.2",
-    "denali": "denali",
+    "denali": "0.0.8",
     "lodash": "^4.0.0"
   },
   "devDependencies": {
