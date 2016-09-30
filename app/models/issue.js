@@ -3,12 +3,12 @@ import ApplicationModel from './application';
 
 export default class Issue extends ApplicationModel {
 
-  static githubId = attr('string');
+  static githubId = attr('text');
   static number = attr('number');
-  static org = attr('string');
-  static repo = attr('string');
-  static state = attr('string');
-  static title = attr('string');
+  static org = attr('text');
+  static repo = attr('text');
+  static state = attr('text');
+  static title = attr('text');
   static createdAt = attr('date');
   static updatedAt = attr('date');
 
