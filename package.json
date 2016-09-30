@@ -17,6 +17,7 @@
     "eslint": "^2.11.0",
     "eslint-config-denali": "^1.1.2",
     "denali": "0.0.8",
+    "denali-node-orm2": "acorncom/denali-node-orm2#setting-up-further",
     "lodash": "^4.0.0"
   },
   "devDependencies": {
