@@ -1,6 +1,6 @@
 # Sqlite3
 CREATE TABLE issue(
-    id INT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     github_id TEXT NOT NULL,
     number INTEGER NOT NULL,
     org TEXT NOT NULL,
