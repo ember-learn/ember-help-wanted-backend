@@ -3,9 +3,10 @@ export default function environmentConfig(environment) {
     server: {
       port: process.env.PORT || 3000
     },
-    ormAdapter: 'node-orm2',
+    // ormAdapter: 'node-orm2',
+    ormAdapter: 'memory',
     database: {
-      url: 'sqlite://./db/backend.sqlite'
+      // url: 'sqlite://./db/backend.sqlite'
     }
   };
 

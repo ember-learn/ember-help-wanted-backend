@@ -17,7 +17,6 @@
     "eslint": "^2.11.0",
     "eslint-config-denali": "^1.1.2",
     "denali": "0.0.8",
-    "denali-node-orm2": "acorncom/denali-node-orm2#setting-up-further",
     "github-webhook-handler": "^0.5.0",
     "lodash": "^4.0.0"
   },
