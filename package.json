@@ -16,7 +16,7 @@
     "bluebird": "^2.9.25",
     "eslint": "^2.11.0",
     "eslint-config-denali": "^1.1.2",
-    "denali": "0.0.8",
+    "denali": "denali-js/denali#3546a6aba07858481b8ef36219a2fd4dc4d2b6eb",
     "github-webhook-handler": "^0.5.0",
     "lodash": "^4.0.0"
   },
