@@ -5,7 +5,7 @@ describe('webhook issues', () => {
 
   setupApp();
 
-  describe('POST /webhook/issues', () => {
+  describe.skip('POST /webhook/issues', () => {
     it('should create a issue', function() {
       return this.app.post('/webhook/issues', {
           // Add the issue payload here
