@@ -7,7 +7,8 @@ export default function environmentConfig(environment) {
     ormAdapter: 'memory',
     database: {
       // url: 'sqlite://./db/backend.sqlite'
-    }
+    },
+    webhookSecret: process.env.WEBHOOK_SECRET || 'oursecrethere'
   };
 
   if (environment === 'development') {
