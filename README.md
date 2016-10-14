@@ -1,6 +1,6 @@
 # Help Wanted Backend
 
-An awesome app built on the [Denali framework](http://denali.js.org/).
+An awesome app built on the [Denali framework](http://denali.js.org/). Designed to be the backend for the [Ember Help Wanted](https://github.com/ember-learn/ember-help-wanted) app.
 
 
 ## Installation
