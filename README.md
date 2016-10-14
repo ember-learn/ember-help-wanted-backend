@@ -1,4 +1,4 @@
-# Help Wanted Backend
+# Help Wanted Backend [![Build Status](https://travis-ci.org/ember-learn/ember-help-wanted-backend.svg?branch=master)](https://travis-ci.org/ember-learn/ember-help-wanted-backend)
 
 An awesome app built on the [Denali framework](http://denali.js.org/).
 
