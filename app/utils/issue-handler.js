@@ -1,6 +1,3 @@
-/* jshint node: true */
-import logger from './logger';
-
 export default class IssueHandler {
 
   constructor(dataStoreClient) {
@@ -38,7 +35,7 @@ export default class IssueHandler {
   }
 
   bulkAdd(repoFullName, issues) {
-    const [repoOwner, repoName] = repoFullName.split('/');
+    const [ repoOwner, repoName ] = repoFullName.split('/');
     const changeIssueFormat = (issue) => {
       const payload = {
         issue,
@@ -49,7 +46,7 @@ export default class IssueHandler {
           }
         }
       };
-      return {payload};
+      return { payload };
     };
     const issuesToAdd = issues
       .map(changeIssueFormat)
@@ -63,12 +60,12 @@ export default class IssueHandler {
     let labels = [];
 
     if (payload.issue.labels) {
-      labels =  payload.issue.labels.map(label => {
+      labels = payload.issue.labels.map((label) => {
         return { name: label.name, color: label.color };
       });
     }
 
-    let id = "issue_" + payload.issue.id.toString();
+    let id = `issue_${ payload.issue.id.toString() }`;
 
     return {
       _id: id,
@@ -81,11 +78,9 @@ export default class IssueHandler {
         org: payload.repository.owner.login,
         state: payload.issue.state,
         createdAt: payload.issue.created_at,
-        updatedAt: payload.issue.updated_at,
+        updatedAt: payload.issue.updated_at
       }
     };
-
   }
-
-};
+}
 

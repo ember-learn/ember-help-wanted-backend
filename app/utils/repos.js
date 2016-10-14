@@ -2,7 +2,7 @@
 const standardLabels = [
   'bug',
   'help wanted',
-  'good for new contributors',
+  'good for new contributors'
 ];
 
 let repoList = [
@@ -12,13 +12,13 @@ let repoList = [
   'emberjs/website',
   'emberjs/ember.js',
   'ember-cli/ember-cli',
-  'ember-cli/ember-cli.github.io',
+  'ember-cli/ember-cli.github.io'
 ];
 
-let repoHash = {};
+let repos = {};
 
-repoList.map(repo => {
-  repoHash[repo] = { labels: standardLabels };
+repoList.forEach((repo) => {
+  repos[repo] = { labels: standardLabels };
 });
 
-export default repoHash;
+export default repos;
