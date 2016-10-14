@@ -17,7 +17,7 @@ export default class WebhookIssuesAction extends ApplicationAction {
 
   // credit goes to https://github.com/rvagg/github-webhook-handler for
   // the Github parsing logic below ...
-  respond(params) {
+  respond(/* params */) {
 
     let { webhookSecret } = this.container.lookup('config:environment');
 
@@ -47,7 +47,7 @@ export default class WebhookIssuesAction extends ApplicationAction {
       // we now want to save data to the DB ... this.request.body
 
       // @TODO: log entrance here with Denali
-      console.log('We should now be able to save data to the DB ...');
+      // console.log('We should now be able to save data to the DB ...');
     } catch (e) {
       return this.hasError(e);
     }
