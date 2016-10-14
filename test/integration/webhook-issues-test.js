@@ -5,28 +5,27 @@ describe('webhook issues', () => {
 
   setupApp();
 
-  describe('POST /webhook/issues', () => {
-    it('should create an issue', () => {
+  describe.skip('POST /webhook/issues', () => {
+    it('should create a issue', function() {
       return this.app.post('/webhook/issues', {
-        // Add the issue payload here
-      }).then(({ status, body }) => {
-        expect(body).to.equal('yep');
+          // Add the issue payload here
+      }).then(({ status /* , body */ }) => {
         expect(status).to.equal(201);
       });
     });
   });
 
   describe.skip('PATCH /issues/:id', () => {
-    before(() => {
+    before(function() {
       return this.app.post('/issues', {
-        // Add the issue payload here
+          // Add the issue payload here
       }).then(({ body }) => {
         this.id = body.data.id;
       });
     });
-    it('should update a issue', () => {
+    it('should update a issue', function() {
       return this.app.patch(`/issues/`, {
-        // Add the issue payload here
+          // Add the issue payload here
       }).then(({ status /* , body */ }) => {
         expect(status).to.equal(200);
       });
@@ -34,14 +33,14 @@ describe('webhook issues', () => {
   });
 
   describe.skip('DELETE /issues/:id', () => {
-    before(() => {
+    before(function() {
       return this.app.post('/issues', {
-        // Add the issue payload here
+          // Add the issue payload here
       }).then(({ body }) => {
         this.id = body.data.id;
       });
     });
-    it('should delete a issue', () => {
+    it('should delete a issue', function() {
       return this.app.delete(`/issues/`)
         .then(({ status /* , body */ }) => {
           expect(status).to.equal(204);
