@@ -3,10 +3,9 @@ export default function environmentConfig(environment) {
     server: {
       port: process.env.PORT || 3000
     },
-    // ormAdapter: 'node-orm2',
-    ormAdapter: 'memory',
+    ormAdapter: 'node-orm2',
     database: {
-      // url: 'sqlite://./db/backend.sqlite'
+      url: 'sqlite://../db/backend.sqlite'
     },
     webhookSecret: process.env.WEBHOOK_SECRET || 'oursecrethere'
   };
