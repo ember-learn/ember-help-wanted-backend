@@ -1,3 +1,5 @@
-describe('IssuesAction', function() {
-  it('should have a unit test!');
+import test from 'ava';
+
+test('IssuesAction > should have a unit test', async (t) => {
+  t.equal(true, true);
 });
