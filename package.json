@@ -14,9 +14,9 @@
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "bluebird": "^3.4.6",
-    "eslint-config-denali": "^1.1.2",
-    "denali": "denali-js/denali#17525cd492fe00c8652b36780dbb6886087719e7",
+    "denali": "^0.0.13",
     "denali-node-orm2": "acorncom/denali-node-orm2#setting-up-further",
+    "eslint-config-denali": "^1.1.2",
     "lodash": "^4.0.0"
   },
   "devDependencies": {
