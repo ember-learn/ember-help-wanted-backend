@@ -14,7 +14,11 @@ export default class WebhookIssuesAction extends ApplicationAction {
   }
 
   hasError(message) {
-    // @TODO: log errors using Denali
+    // @TODO: log these errors using Denali as well?
+    if (message.stack) {
+      return new Response(400, { message: message.stack });
+    }
+
     return new Response(400, { message });
   }
 
@@ -43,7 +47,9 @@ export default class WebhookIssuesAction extends ApplicationAction {
     let computedSig = this.signBlob(webhookSecret, JSON.stringify(this.request.body));
 
     if (sig !== computedSig) {
-      return this.hasError('X-Hub-Signature does not match blob signature');
+      // debugging line
+      // return this.hasError('X-Hub-Signature does not match blob signature ' + computedSig);
+      return this.hasError(`X-Hub-Signature does not match blob signature`);
     }
 
     try {
@@ -56,6 +62,7 @@ export default class WebhookIssuesAction extends ApplicationAction {
         url: this.request.url
       };
 
+      this.logger.info(`About to process event`);
       this.processEvent(eventPayload);
     } catch (e) {
       return this.hasError(e);
@@ -74,11 +81,11 @@ export default class WebhookIssuesAction extends ApplicationAction {
     const action = event.payload.action;
 
     if (supportedActions.indexOf(action) === -1) {
-      this.logger.debug(`Unsupported action: ${ action }`);
+      this.logger.info(`Unsupported action: ${ action }`);
       return;
     }
 
-    this.logger.info(event); // @TODO: would like to see the data, not just the object
+    this.logger.debug(JSON.stringify(event));
 
     let dataStore = new DenaliDataStore(this.container, this.logger);
     let issueHandler = new IssueHandler(dataStore);
@@ -110,7 +117,12 @@ export default class WebhookIssuesAction extends ApplicationAction {
     op.then(() => {
       this.logger.info(`Success in performing ${ event.payload.action }`, event.payload.issue.id);
     }, (reason) => {
-      this.logger.error(`Failed performing ${ event.payload.action }`, reason, event.payload.issue.id);
+      let error = `Failed performing ${ event.payload.action } Github event`;
+      this.logger.info(`${ error }
+        Reason: ${ reason.message }
+        Issue id: ${ event.payload.issue.id }`);
+      this.logger.debug(`Stack trace: ${ reason.stack }`);
+      throw new Error(error);
     });
   }
 }
