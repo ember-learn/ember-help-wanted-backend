@@ -17,24 +17,25 @@ export default class DenaliDataStore {
   updateIssue(payload) {
     let Issue = this.model();
     let dbPayload = this._mapPayload(payload);
-    return Issue.find(payload._id)
+    return Issue.find({ githubId: payload._id })
         .then((issue) => {
-          if (issue === undefined) {
+          if (issue === undefined || issue.length === 0) {
             return this.addIssue(payload);
           }
 
           this.logger.debug(`updating ${ payload._id } in store`);
           Object.assign(issue, dbPayload);
           return issue.save();
-        }, () => {
-          this.logger.debug(`had some sort of trouble saving {issue._id} in store`);
+        }, (message) => {
+          this.logger.info(`had some sort of trouble saving {issue._id} in store`);
+          this.logger.debug(`Stack: ${ message.stack }`);
           return;
         });
   }
 
   removeIssue(payload) {
     let Issues = this.model();
-    return Issues.find(payload._id)
+    return Issues.find({ githubId: payload._id })
         .then((issues) => issues.delete()); // @TODO: make sure we handle errors
   }
 
