@@ -10,14 +10,14 @@
     "node": ">=6.2.0"
   },
   "dependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "bluebird": "^3.4.6",
-    "denali": "^0.0.14",
-    "denali-babel": "^0.0.4",
-    "denali-eslint": "^0.0.3",
-    "denali-node-orm2": "0.0.1",
+    "denali": "0.0.15",
+    "denali-babel": "0.0.x",
+    "denali-eslint": "0.0.x",
+    "denali-node-orm2": "0.0.x",
     "eslint-config-denali": "^1.1.2",
     "lodash": "^4.0.0"
   },
