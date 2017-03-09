@@ -1,13 +1,12 @@
 import { Response } from 'denali';
 import ApplicationAction from '../application';
 
-export default class CreateIssues extends ApplicationAction {
+export default class CreateIssue extends ApplicationAction {
 
-  respond(params) {
+  async respond(params) {
     let Issue = this.modelFor('issue');
-    return Issue.create(params.data.attributes).then((issue) => {
-      return new Response(201, issue);
-    });
+    let issue = await Issue.create(params);
+    return new Response(201, issue);
   }
 
 }

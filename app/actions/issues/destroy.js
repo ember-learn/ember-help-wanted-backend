@@ -1,13 +1,13 @@
 import { Response } from 'denali';
 import ApplicationAction from '../application';
 
-export default class DestroyIssues extends ApplicationAction {
+export default class DestroyIssue extends ApplicationAction {
 
-  respond(params) {
-    let Issues = this.modelFor('issue');
-    return Issues.find(params.id)
-      .then((issues) => issues.delete())
-      .then(() => new Response(204));
+  async respond(params) {
+    let Issue = this.modelFor('issue');
+    let issue = await Issue.findOne(params.id);
+    await issue.delete();
+    return new Response(204);
   }
 
 }

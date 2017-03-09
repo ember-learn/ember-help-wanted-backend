@@ -1,5 +1,5 @@
 {
-  "name": "help-wanted-backend",
+  "name": "ember-help-wanted-backend",
   "version": "0.0.1",
   "scripts": {
     "start": "denali server",
@@ -10,20 +10,30 @@
     "node": ">=6.2.0"
   },
   "dependencies": {
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-plugin-transform-class-properties": "^6.16.0",
-    "babel-preset-latest": "^6.16.0",
     "bluebird": "^3.4.6",
-    "denali": "0.0.15",
-    "denali-babel": "0.0.x",
-    "denali-eslint": "0.0.x",
-    "denali-node-orm2": "0.0.x",
     "eslint-config-denali": "^1.1.2",
+    "denali": "0.0.22",
+    "denali-cli": "0.0.x",
+    "denali-node-orm2": "0.0.x",
     "lodash": "^4.0.0"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
-    "babel-eslint": "^6.0.4"
+    "ava": "^0.17.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.18.0",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0",
+    "babel-plugin-transform-exponentiation-operator": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.16.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "denali-babel": "0.0.x",
+    "denali-eslint": "0.0.x"
   },
   "ava": {
     "plugins": [],

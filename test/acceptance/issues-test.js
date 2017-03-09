@@ -1,11 +1,61 @@
 import test from 'ava';
-import { AppAcceptanceTest } from 'denali';
+import { appAcceptanceTest } from 'denali';
 
-test('GET / > should return a welcome message', async (t) => {
-  let app = new AppAcceptanceTest();
-  let { body } = await app.get('/');
-  t.equal(body.message, 'Welcome to Denali!');
+appAcceptanceTest(test);
+
+test('POST /issues > creates a issue', async (t) => {
+  let result = await t.context.app.post('/issues', {
+      // Add the issue payload here
+  });
+
+  t.is(result.status, 201);
+  // t.is(result.body.foo, 'bar');
 });
+
+test('GET /issues > should list issues', async (t) => {
+  let result = await t.context.app.get('/issues');
+
+  t.is(result.status, 200);
+  // t.is(result.body.foo, 'bar');
+});
+
+test('GET /issues/:id > should show a issue', async (t) => {
+  let { body } = await t.context.app.post('/issues', {
+      // Add the issue payload here
+  });
+  let id = body.data.id;
+
+  let result = await t.context.app.get(`/issues/${ id }`);
+
+  t.is(result.status, 200);
+  // t.is(result.body.foo, 'bar');
+});
+
+test('PATCH /issues/:id > should update a issue', async (t) => {
+  let { body } = await t.context.app.post('/issues', {
+      // Add the issue payload here
+  });
+  let id = body.data.id;
+
+  let result = await t.context.app.patch(`/issues/${ id }`, {
+      // Add the issue payload here
+  });
+
+  t.is(result.status, 200);
+  // t.is(result.body.foo, 'bar');
+});
+
+test('DELETE /issues/:id > should delete a issue', async (t) => {
+  let { body } = await t.context.app.post('/issues', {
+      // Add the issue payload here
+  });
+  let id = body.data.id;
+
+  let result = await t.context.app.delete(`/issues/${ id }`);
+
+  t.is(result.status, 204);
+});
+
 /*
 import expect from 'must';
 import { setupApp } from 'denali';
