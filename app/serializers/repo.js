@@ -1,6 +1,6 @@
 import ApplicationSerializer from './application';
 
-export default class IssueSerializer extends ApplicationSerializer {
+export default class RepoSerializer extends ApplicationSerializer {
 
   attributes = [
   ];

@@ -1,8 +1,8 @@
 import { attr /* , hasOne, hasMany */ } from 'denali';
 import ApplicationModel from './application';
 
-export default class Issue extends ApplicationModel {
+export default class User extends ApplicationModel {
 
-  static title = attr('string');
+  static admin = attr('boolean');
 
 }
