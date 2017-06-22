@@ -1,4 +1,4 @@
-export default function environmentConfig(environment) {
+export default function environmentConfig(environment: 'development' | 'production') {
   let config = {
     server: {
       port: process.env.PORT || 3000

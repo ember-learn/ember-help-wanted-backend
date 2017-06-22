@@ -1,4 +1,4 @@
-import { inject } from 'denali';
+import { inject, ResponderParams } from 'denali';
 import AuthenticatedAction from '../authenticated';
 
 export default class CreateRepo extends AuthenticatedAction {
@@ -7,7 +7,7 @@ export default class CreateRepo extends AuthenticatedAction {
 
   adminOnly = true;
 
-  async respond({ body }) {
+  async respond({ body }: ResponderParams) {
     let githubRepo = await this.fetchRepoFromGithub(body.fullName);
     let repo = this.db.create('repo', githubRepo);
     await repo.save();
@@ -15,7 +15,7 @@ export default class CreateRepo extends AuthenticatedAction {
     this.render(201, repo);
   }
 
-  async fetchRepoFromGithub(fullName) {
+  async fetchRepoFromGithub(fullName: string) {
     let rawRepo = await this.githubApi.get(`repos/${ fullName }`);
     return {
       fullName: rawRepo.full_name

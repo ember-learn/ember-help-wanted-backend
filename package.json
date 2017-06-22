@@ -10,6 +10,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "bluebird": "^3.5.0",
     "denali": "^0.0.27",
     "denali-node-orm2": "acorncom/denali-node-orm2#setting-up-further",

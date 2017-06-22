@@ -7,7 +7,7 @@ export default class Repo extends ApplicationModel {
 
   async initialIssueSync() {
     let issues = await this.githubApi.get(`/repos/${ this.fullName }/issues`);
-    issues.forEach(async (issueData) => {
+    issues.forEach(async (issueData: any) => {
       issueData = {
         title: issueData.title
       };

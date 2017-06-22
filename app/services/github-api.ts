@@ -1,7 +1,9 @@
 import { Service } from 'denali';
-import axios from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 export default class GithubApiService extends Service {
+
+  axios: AxiosInstance;
 
   init() {
     this.axios = axios.create({
@@ -9,17 +11,21 @@ export default class GithubApiService extends Service {
     });
   }
 
-  get(...args) {
-    return this.axios.get(...args);
+  get(url: string, config?: AxiosRequestConfig) {
+    return this.axios.get(url, config);
   }
-  post(...args) {
-    return this.axios.post(...args);
+  post(url: string, data?: any, config?: AxiosRequestConfig) {
+    return this.axios.post(url, data, config);
   }
-  put(...args) {
-    return this.axios.put(...args);
+  put(url: string, data?: any, config?: AxiosRequestConfig) {
+    return this.axios.put(url, data, config);
   }
-  delete(...args) {
-    return this.axios.delete(...args);
+  delete(url: string, config?: AxiosRequestConfig) {
+    return this.axios.delete(url, config);
   }
 
 }
+
+export interface GithubUserData {
+
+};

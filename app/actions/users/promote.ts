@@ -1,4 +1,4 @@
-import { inject } from 'denali';
+import { inject, ResponderParams } from 'denali';
 import AuthenticatedAction from '../authenticated';
 
 export default class CreateRepo extends AuthenticatedAction {
@@ -7,11 +7,11 @@ export default class CreateRepo extends AuthenticatedAction {
 
   adminOnly = true;
 
-  async respond({ params }) {
-    let user = this.db.find('user', params.id);
+  async respond({ params }: ResponderParams) {
+    let user = await this.db.find('user', params.id);
     user.admin = true;
     await user.save();
-    this.render(user);
+    return user;
   }
 
 }

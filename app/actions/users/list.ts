@@ -8,7 +8,7 @@ export default class CreateRepo extends AuthenticatedAction {
   adminOnly = true;
 
   async respond() {
-    this.render(await this.db.all('user'));
+    return this.db.all('user');
   }
 
 }

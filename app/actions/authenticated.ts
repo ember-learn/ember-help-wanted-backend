@@ -1,27 +1,31 @@
 import { Errors } from 'denali';
 import ApplicationAction from './application';
+import User from '../models/user';
 
-export default class AuthenticatedAction extends ApplicationAction {
+export default abstract class AuthenticatedAction extends ApplicationAction {
 
   before = 'authenticate';
 
-  async authenticate({ headers }) {
+  user: User;
+  adminOnly?: boolean;
+
+  async authenticate({ headers }: any) {
     if (!headers.authorization) {
-      return this.render(new Errors.Unauthorized('Missing authorization header'));
+      return new Errors.Unauthorized('Missing authorization header');
     }
     let [ scheme, token ] = headers.authorization.split(' ');
     if (scheme !== 'TOKEN') {
-      return this.render(new Errors.BadRequest('Invalid authorization scheme'));
+      return new Errors.BadRequest('Invalid authorization scheme');
     }
     if (!token) {
-      return this.render(new Errors.BadRequest('Missing authorization token in header'));
+      return new Errors.BadRequest('Missing authorization token in header');
     }
-    let user = await this.db.query('user', { token });
+    let user = await this.db.queryOne('user', { token });
     if (!user) {
-      return this.render(new Errors.Unauthorized('Invalid authorization token'));
+      return new Errors.Unauthorized('Invalid authorization token');
     }
     if (this.adminOnly && !user.admin) {
-      return this.render(new Errors.Forbidden('You must be an admin to perform this action'));
+      return new Errors.Forbidden('You must be an admin to perform this action');
     }
     this.user = user;
   }

@@ -1,9 +1,10 @@
 import ApplicationAction from '../application';
+import { ResponderParams } from 'denali';
 
 export default class ShowRepo extends ApplicationAction {
 
-  async respond({ params }) {
-    this.render(await this.db.find('repo', params.id));
+  async respond({ params }: ResponderParams) {
+    return this.db.find('repo', params.id);
   }
 
 }

@@ -2,9 +2,8 @@ import ApplicationSerializer from './application';
 
 export default class RepoSerializer extends ApplicationSerializer {
 
-  attributes = [
-  ];
+  attributes: string[] = [];
 
-  relationships = [];
+  relationships = {};
 
 }
