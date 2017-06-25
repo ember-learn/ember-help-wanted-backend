@@ -1,21 +1,11 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '8'
 sudo: false
-
-cache:
-  directories:
-    - node_modules
-
-before_install:
-  - npm config set spin false
-  # - npm install -g denali
-  - bin/pull-down-master.sh
-
-install:
-  - npm install
-
-script:
-  - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: M5kyDOg/yErY7MGoIYCJ5pfFiDIE2BS+Vj29UWPD0IlXv2rBJKWjFeFmEAaYzMUwF2lBRAgcN7k+33qeKMWkK/8vJfqNac2ko2Z9r9pbIC9n7lGvqLeaWhz+dvxH3ENYgv81v2X9b146kt03eu3Ws8BtDd11dXQo/OE3bXcy7hUaR5zStkWL9z9CLvwaFu0REZv1hEFi2aZAFDZSJIIHs5AzTzpb+GMp+Wp6wftv4rpuSnkpLyhQmjapT07o4SRYFOnD0fdE2Makn3L9TxO4z0lTueHUNGfYxk2McJnQ3jUzlazjh3MSp3hJ4ZqSgMAMmjzIAh2M5n2PobCp272MFsFIRwnC28U0v8R9SYF2J4rfKaqlw2VbHiQWUwWtnrmwSZBVmrAnHsb8vasxcn1eYoPQxThKBFJE/tlijZ5SWpfo7YlLItcRzF4IL4LFxw505Edguct3/KZyjHjvMP0IBzBkLyqKuV/yzEY2rFRjXXzz0k/QpH68uhzAQjn6YjwPDnt5JAgjg9PBl5XTjSfUv61MA5BwG8SUzL4PHt7AyFMbdruYr4fiLdrBrS3JywZswIB1LcaHiOKXT6hjF10GHO0f4LD9kpxBJSL0MN+0mZ0J/QS1Wyj52+jp+IrmFYmvHZzyIzjOTrEz5xgJDsF12poivNY3xGGAAaqxT600M3w=
+  app: ember-help-wanted-api
+  on:
+    repo: ember-learn/ember-help-wanted-backend
