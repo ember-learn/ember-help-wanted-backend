@@ -6,9 +6,10 @@ import GithubApi, { GithubUserData } from '../../services/github-api';
 export default class OAuthCallback extends ApplicationAction {
 
   githubApi = inject<GithubApi>('service:github-api');
+  parser = inject('parser:raw');
 
-  async respond({ query }: ResponderParams) {
-    let accessToken = await this.fetchAccessToken(query.code);
+  async respond({ body }: ResponderParams) {
+    let accessToken = await this.fetchAccessToken(body.code);
     if (accessToken) {
       let user = await this.fetchUser(accessToken);
       return user;
@@ -16,13 +17,13 @@ export default class OAuthCallback extends ApplicationAction {
   }
 
   async fetchAccessToken(code: string) {
-    let { data } = await axios.post('https://github.com/login/oauth/access_token', {
+    let { data } = await this.githubApi.post('https://github.com/login/oauth/access_token', {
       client_id: this.config.github.clientId,
       client_secret: this.config.github.clientSecret,
       code,
       accept: 'json'
     });
-    return data.accessToken;
+    return data.access_token;
   }
 
   async fetchUser(accessToken: string) {
@@ -31,13 +32,16 @@ export default class OAuthCallback extends ApplicationAction {
     if (!user) {
       user = await this.db.create('user', this.userDataFromPayload(data)).save();
     }
-    user.token = 'foo';
+    user.token = accessToken;
     await user.save();
     return user;
   }
 
   userDataFromPayload(payload: GithubUserData) {
-    // todo
+    return {
+      id: payload.id,
+      username: payload.username
+    };
   }
 
 }

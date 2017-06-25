@@ -16,8 +16,9 @@ export default class CreateRepo extends AuthenticatedAction {
   }
 
   async fetchRepoFromGithub(fullName: string) {
-    let rawRepo = await this.githubApi.get(`repos/${ fullName }`);
+    let rawRepo = await this.githubApi.get(`/repos/${ fullName }`);
     return {
+      id: rawRepo.id,
       fullName: rawRepo.full_name
     };
   }

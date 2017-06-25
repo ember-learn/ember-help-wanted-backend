@@ -13,7 +13,6 @@
     "@types/axios": "^0.14.0",
     "bluebird": "^3.5.0",
     "denali": "^0.0.27",
-    "denali-node-orm2": "acorncom/denali-node-orm2#setting-up-further",
     "denali-typescript": "^0.0.5",
     "lodash": "^4.0.0",
     "tslint": "^5.4.3",

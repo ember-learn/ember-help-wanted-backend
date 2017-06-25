@@ -1,10 +1,10 @@
+import { ResponderParams, Errors } from 'denali';
 import ApplicationAction from '../application';
-import { ResponderParams } from 'denali';
 
 export default class ShowRepo extends ApplicationAction {
 
   async respond({ params }: ResponderParams) {
-    return this.db.find('repo', params.id);
+    return (await this.db.find('repo', params.id)) || new Errors.NotFound();
   }
 
 }

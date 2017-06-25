@@ -1,15 +1,22 @@
-export default function environmentConfig(environment: 'development' | 'production') {
-  let config = {
+export default function environmentConfig(environment: 'development' | 'test' | 'production') {
+  let config: any = {
     server: {
       port: process.env.PORT || 3000
     },
     database: {
-      url: 'sqlite://./db/backend.sqlite'
+      // url: 'sqlite://./db/backend.sqlite'
+    },
+    bodyParser: {
+      type: 'application/*'
     }
   };
 
-  if (environment === 'development') {
-    // development-specific config
+  if (environment === 'test') {
+    // test-specific config
+    config.github = {
+      clientId: 'foo',
+      clientSecret: 'bar'
+    };
   }
 
   if (environment === 'production') {

@@ -1,7 +1,7 @@
 import { inject, ResponderParams } from 'denali';
 import AuthenticatedAction from '../authenticated';
 
-export default class CreateRepo extends AuthenticatedAction {
+export default class PromoteUser extends AuthenticatedAction {
 
   githubApi = inject('service:github-api');
 

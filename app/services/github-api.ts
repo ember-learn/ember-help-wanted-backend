@@ -27,5 +27,6 @@ export default class GithubApiService extends Service {
 }
 
 export interface GithubUserData {
-
+  id: number;
+  username: string;
 };

@@ -1,9 +1,12 @@
-import { attr /* , hasOne, hasMany */ } from 'denali';
+import { attr, inject } from 'denali';
 import ApplicationModel from './application';
 
 export default class Repo extends ApplicationModel {
 
+  static repoName = attr('string');
   static fullName = attr('string');
+
+  githubApi = inject('service:github-api');
 
   async initialIssueSync() {
     let issues = await this.githubApi.get(`/repos/${ this.fullName }/issues`);

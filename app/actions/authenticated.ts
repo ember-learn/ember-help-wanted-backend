@@ -4,7 +4,7 @@ import User from '../models/user';
 
 export default abstract class AuthenticatedAction extends ApplicationAction {
 
-  before = 'authenticate';
+  static before = [ 'authenticate' ];
 
   user: User;
   adminOnly?: boolean;
