@@ -4,11 +4,16 @@ export default function environmentConfig(environment: 'development' | 'test' | 
       port: process.env.PORT || 3000
     },
     database: {
-      // url: 'sqlite://./db/backend.sqlite'
+      client: 'pg',
+      connection: process.env.DATABASE_URL
     },
     bodyParser: {
       type: 'application/*'
     }
+  };
+
+  config.migrations = {
+    db: config.database
   };
 
   if (environment === 'test') {

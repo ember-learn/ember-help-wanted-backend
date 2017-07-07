@@ -14,8 +14,10 @@
     "bluebird": "^3.5.0",
     "denali": "^0.0.29",
     "denali-cli": "^0.0.12",
+    "denali-objection": "^0.0.1",
     "denali-typescript": "^0.0.5",
     "lodash": "^4.0.0",
+    "pg": "^6.4.0",
     "tslint": "^5.4.3",
     "typescript": "^2.3.4"
   },
