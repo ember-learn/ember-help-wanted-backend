@@ -19,7 +19,7 @@
     "lodash": "^4.0.0",
     "pg": "^6.4.0",
     "tslint": "^5.4.3",
-    "typescript": "^2.3.4"
+    "typescript": "^2.4.1"
   },
   "devDependencies": {
     "ava": "^0.20.0"
