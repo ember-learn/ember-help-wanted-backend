@@ -1,6 +1,6 @@
 require('source-map-support').install();
 const path = require('path');
-const Application = require('./dist/app/application').default;
+const Application = require('./application').default;
 
 let application = new Application({
   environment: process.env.DENALI_ENV || process.env.NODE_ENV || 'development',
