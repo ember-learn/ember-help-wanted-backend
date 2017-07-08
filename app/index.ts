@@ -4,7 +4,7 @@ const Application = require('./application').default;
 
 let application = new Application({
   environment: process.env.DENALI_ENV || process.env.NODE_ENV || 'development',
-  dir: path.join(process.cwd(), 'dist')
+  dir: process.cwd()
 });
 
 application.start();
