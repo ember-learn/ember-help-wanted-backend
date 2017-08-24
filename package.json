@@ -12,11 +12,12 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "bluebird": "^3.5.0",
-    "denali": "^0.0.29",
+    "denali": "^0.0.30",
     "denali-cli": "^0.0.12",
     "denali-objection": "^0.0.2",
-    "denali-typescript": "^0.0.5",
+    "denali-typescript": "^0.0.6",
     "lodash": "^4.0.0",
+    "main-dir": "^1.0.1",
     "pg": "^6.4.0",
     "tslint": "^5.4.3",
     "typescript": "^2.4.1"

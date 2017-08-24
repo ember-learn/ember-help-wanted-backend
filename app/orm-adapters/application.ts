@@ -1,3 +1,3 @@
-import ObjectionAdapter from 'denali-objection/app/orm-adapters/objection';
+import { ObjectionAdapter } from 'denali-objection';
 
 export default class ApplicationAdapter extends ObjectionAdapter {}

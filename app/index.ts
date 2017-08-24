@@ -1,6 +1,8 @@
-require('source-map-support').install();
-const path = require('path');
-const Application = require('./application').default;
+import * as path from 'path';
+import * as SourceMapSupport from 'source-map-support';
+import Application from './application';
+
+SourceMapSupport.install();
 
 let application = new Application({
   environment: process.env.DENALI_ENV || process.env.NODE_ENV || 'development',
@@ -9,4 +11,4 @@ let application = new Application({
 
 application.start();
 
-module.exports = application;
+export default application;
