@@ -10,6 +10,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bluebird": "^3.5.0",
     "denali": "^0.0.30",
     "denali-cli": "^0.0.12",
