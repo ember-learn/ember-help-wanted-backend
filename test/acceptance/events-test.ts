@@ -221,7 +221,7 @@ test('DELETE /events/:id with an invalid token returns 401', async (t) => {
   t.is(status, 401);
 });
 
-test('DELETE /events/:id as the host deletes the event', async (t) => {
+test.only('DELETE /events/:id as the host deletes the event', async (t) => {
   let { app } = t.context;
   let db = app.lookup('service:db');
   let host = await db.create('user', { username: 'davewasmer', token: 'asdf' }).save();

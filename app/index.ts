@@ -1,3 +1,4 @@
+import 'main-dir';
 import * as path from 'path';
 import * as SourceMapSupport from 'source-map-support';
 import Application from './application';
